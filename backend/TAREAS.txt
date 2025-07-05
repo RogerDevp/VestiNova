@@ -1,7 +1,7 @@
 -Roger -
--Autentificación 
--Obtenga todos los empleados y empleado por ID, agregar, eliminar empleado
--Obtenga todos los productos y un producto por ID, agregar, eliminar producto
+-Autentificación LISTO
+-Obtenga todos los empleados y empleado por ID, agregar, eliminar empleado LISTO
+-Obtenga todos los productos y un producto por ID, agregar, eliminar producto LISTO
 
 -Renzo
 -Agregar provedor obtener uno por ID y obtener todos y eliminar 
