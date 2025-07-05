@@ -1,0 +1,11 @@
+-Roger
+-Autentificación 
+-Obtenga todos los empleados y empleado por ID, agregar, eliminar empleado
+-Obtenga todos los productos y un producto por ID, agregar, eliminar producto
+
+-Renzo
+-Agregar provedor obtener uno por ID y obtener todos y eliminar 
+-Obtener todas las asistencias, asistencias por empleado, ingresar asistencia, eliminar asistencia, asistencia de un rango(dia,mes,año).
+-Obtener todos los postulantes, obtener un postulante por ID, eliminar postulación,(opcional trigger cuando un postulante es trabajador eliminar de la tabla postulantes.
+-Opcional agregar una tabla historial_empleados.
+
