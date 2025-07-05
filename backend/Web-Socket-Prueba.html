@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Prueba WebSocket y API</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+
+    input,
+    button {
+      margin: 10px 0;
+      padding: 8px;
+    }
+
+    #messages {
+      border: 1px solid #ccc;
+      padding: 10px;
+      height: 200px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Prueba WebSocket y API</h1>
+
+  <h2>Enviar mensaje WebSocket</h2>
+  <input type="text" id="mensajeInput" placeholder="Escribe un mensaje..." />
+  <button onclick="enviarMensaje()">Enviar</button>
+
+  <h3>Mensajes recibidos:</h3>
+  <div id="messages"></div>
+
+  <hr>
+
+  <h2>Probar API REST (GET /api/horarios)</h2>
+  <button onclick="probarApi()">Probar API</button>
+  <pre id="apiResponse"></pre>
+
+  <script>
+    const ws = new WebSocket("ws://192.168.0.109:3001");
+
+
+    ws.onopen = () => {
+      console.log("Conectado al WebSocket");
+    };
+
+    ws.onmessage = (event) => {
+      const mensajes = document.getElementById("messages");
+      const nuevo = document.createElement("div");
+      nuevo.textContent = event.data;
+      mensajes.appendChild(nuevo);
+    };
+
+    ws.onclose = () => {
+      console.log("WebSocket desconectado");
+    };
+
+    function enviarMensaje() {
+      const input = document.getElementById("mensajeInput");
+      if (input.value) {
+        ws.send(input.value);
+        input.value = "";
+      }
+    }
+
+    function probarApi() {
+      fetch("http://localhost:3001/api/horarios")
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById("apiResponse").textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(err => {
+          document.getElementById("apiResponse").textContent = "Error al llamar a la API: " + err;
+        });
+    }
+  </script>
+</body>
+
+</html>
